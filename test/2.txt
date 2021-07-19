@@ -1,0 +1,61 @@
+package com.company.Fille;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        //путь к файлу может быть указан, как относительный так и обсолютный
+        File file = new File("1.txt");
+        if (!file.exists()) {//проверяет существует ли файл
+            file.createNewFile();
+        }
+        System.out.println(file.canExecute());
+        System.out.println(file.canRead());
+        System.out.println(file.canWrite());
+        //количество секунд прошедших с 1 января 1970г
+        //Unix Timestamp
+        System.out.println(file.lastModified());
+        file.setLastModified(0);
+        file.isHidden(); //возвращает true если файл скрыт
+//        file.setReadable(false); // только для чтения
+        file.setReadable(true);  // для чтения и записи
+        System.out.println(file.getAbsolutePath());
+        File dir = new File("data\\bin\\org");
+        if (!dir.exists()) {
+            //dir.mkdir(); - создаст только первую папку из указанного пути, которой не существует
+            dir.mkdirs(); //создает все папки по указанному пути
+            //вывести на экран название всех текстовых файлов у которых рашерение , которые являются скрытым
+        }
+        File[] list = dir.listFiles();
+        for (File f : list) {
+            if (f.isDirectory()) {
+                continue; //идем дальше если это папка
+            }
+            if (!f.isHidden()) {
+                continue; //идем дальше если файл не скрытый
+
+            }
+            if (!f.getName().endsWith(".txt")) {
+                continue;// идем дальше если название файла не заканчивается .txt
+            }
+            System.out.println(f.getName());
+        }
+        File dir2 = new File("example\\");
+        printFiles(dir2);
+
+    }
+
+    public static void printFiles(File dir) {
+        File[] list = dir.listFiles();
+        for (File file : list) {
+            if (file.isFile()) {
+                System.out.println(file.getName());
+                continue;
+            }
+
+
+        }
+
+    }
+}
