@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.CountDownLatch;
 
 public class Timer {
     private Runnable handler;
@@ -26,13 +25,6 @@ new Thread(()->{
 
 }).start();
 
-
-
-
-
-
-
-
     }
 
     public void start() {
@@ -42,9 +34,4 @@ new Thread(()->{
             e.printStackTrace();
         }
     }
-
-
-
-
-
 }
