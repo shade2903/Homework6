@@ -8,8 +8,8 @@ public class MainTest {
 //        fileWatcher.watch();
         Timer timer = new Timer();
         timer.put(()-> System.out.println("Hello"),1500);
-        timer.put(()-> System.out.println("World"),500);
-        timer.start();
+        timer.put(()-> System.out.println("World!!"),300);
+//        timer.start();
         System.out.println("Done");
 
 

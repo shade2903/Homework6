@@ -6,25 +6,20 @@ public class Timer {
     private Thread t;
 
     public void put(Runnable r,long time){
-        this.handler = r;
-        this.time= time;
-        this.t = new Thread(this.handler);
 
-        Thread breakThread = new Thread(()-> {
-            try {
-                Thread.sleep(time);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+new Thread(()->{
+    try {
+        Thread.sleep(time);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    this.handler = r;
+    this.time= time;
+    this.t = new Thread((this.handler));
+    t.start();
+}).start();
 
-        });
-        breakThread.start();
-        try {
-            breakThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        this.t.start();
+
 
 
 
