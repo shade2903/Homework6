@@ -7,7 +7,7 @@ public class MainTest {
 //        FileWatcher fileWatcher = new FileWatcher("test",10000);
 //        fileWatcher.watch();
         Timer timer = new Timer();
-        timer.put(()-> System.out.println("Hello"),1000);
+        timer.put(()-> System.out.println("Hello"),1500);
         timer.put(()-> System.out.println("World"),500);
         timer.start();
         System.out.println("Done");
