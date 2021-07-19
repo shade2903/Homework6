@@ -9,7 +9,8 @@ public class MainTest {
         Timer timer = new Timer();
         timer.put(()-> System.out.println("Hello"),1500);
         timer.put(()-> System.out.println("World!!"),300);
-//        timer.start();
+        timer.start();
+
         System.out.println("Done");
 
 

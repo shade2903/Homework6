@@ -1,11 +1,17 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.concurrent.CountDownLatch;
+
 public class Timer {
     private Runnable handler;
     private Long time;
     private Thread t;
+    ArrayList<Long> secondList = new ArrayList<>();
 
     public void put(Runnable r,long time){
+        secondList.add(time);
 
 new Thread(()->{
     try {
@@ -17,22 +23,28 @@ new Thread(()->{
     this.time= time;
     this.t = new Thread((this.handler));
     t.start();
+
 }).start();
 
 
 
 
 
+
+
+
     }
 
-    public void start(){
+    public void start() {
         try {
-
-            this.t.join();
+            Thread.sleep(Collections.max(secondList)+100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
+
+
+
+
 
 }
